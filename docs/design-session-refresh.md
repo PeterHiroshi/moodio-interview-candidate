@@ -20,6 +20,10 @@ entry point in this exercise.
   token must produce the existing authentication error; it cannot renew itself.
   Session storage is scoped to the tab and does not promise recovery after the
   tab is closed.
+- Show the candidate a live countdown from the expiry timestamp in the token,
+  including after refresh. It is informational and depends on the candidate's
+  clock; the server remains the authority. If the timestamp is unavailable,
+  show that its remaining time is unavailable instead of blocking the request.
 - Preserve the delayed copy interaction that candidates are asked to fix.
 
 ## Scope ledger
@@ -30,6 +34,7 @@ entry point in this exercise.
 | A custom API address is restored with its matching token | Both are needed to use the connection | Planned |
 | The refreshed page reconnects and reads the saved canvas | Existing interview exercise flow | Planned |
 | Expired tokens still receive the server's 401 response | Existing token contract | Planned |
+| Remaining token time is visible and updates while the connection is active | User request | Planned |
 | The deliberately slow copy interaction remains the candidate task | Existing interview exercise | Planned |
 
 ## Verification
