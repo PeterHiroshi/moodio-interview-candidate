@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canvas exercise</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><div class="brand"><span class="brand-mark">✳</span> Moodio <span class="divider"></span><span class="project-name">Canvas exercise</span></div><span class="top-label">INTERVIEW PROJECT</span></header>
+  <main>
+    <aside><div class="avatar">M</div><span class="sidebar-active">▦</span><span>◈</span><span>◎</span></aside>
+    <section class="workspace">
+      <div class="heading"><div><div class="eyebrow">YOUR WORKSPACE / CANVAS</div><h1>Visual directions</h1><p>Explore your ideas and make room for new ones.</p></div><span class="badge">✦ &nbsp; Creative board</span></div>
+      <form id="access-form" class="access"><label>API address<input id="api-url" type="url" required value="http://localhost:8787" autocomplete="url"></label><label class="token-field">Interview token<input id="token" type="password" required autocomplete="off" placeholder="Paste your token"></label><button type="submit">Connect</button></form>
+      <div id="message" role="status" aria-live="polite" class="message">Connect with the details provided by your interviewer.</div>
+      <div class="canvas-header"><div><span class="canvas-dot"></span> Canvas <span id="count"></span></div><span>Copy a card to explore a direction</span></div>
+      <div id="canvas" class="canvas"></div>
+    </section>
+  </main>
+</body>
+</html>
