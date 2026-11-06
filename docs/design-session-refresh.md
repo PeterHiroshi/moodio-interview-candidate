@@ -30,12 +30,12 @@ entry point in this exercise.
 
 | Observable behavior | Source | Status |
 | --- | --- | --- |
-| A submitted token remains available when the current tab is refreshed | User report | Planned |
-| A custom API address is restored with its matching token | Both are needed to use the connection | Planned |
-| The refreshed page reconnects and reads the saved canvas | Existing interview exercise flow | Planned |
-| Expired tokens still receive the server's 401 response | Existing token contract | Planned |
-| Remaining token time is visible and updates while the connection is active | User request | Planned |
-| The deliberately slow copy interaction remains the candidate task | Existing interview exercise | Planned |
+| A submitted token remains available when the current tab is refreshed | User report | Verified in a component-level DOM simulation; real browser not yet checked |
+| A custom API address is restored with its matching token | Both are needed to use the connection | Verified in a component-level DOM simulation; real browser not yet checked |
+| The refreshed page reconnects and reads the saved canvas | Existing interview exercise flow | Verified in a component-level DOM simulation |
+| Expired tokens still receive the server's 401 response | Existing token contract | Verified against a simulated API |
+| Remaining token time is visible and updates while the connection is active | User request | Verified in a component-level DOM simulation |
+| The deliberately slow copy interaction remains the candidate task | Existing interview exercise | Existing response-gated implementation preserved |
 
 ## Verification
 

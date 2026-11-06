@@ -25,7 +25,7 @@ Open **http://localhost:4173** in a browser, then:
 
 1. Check that **API address** is `https://moodio-interview-api.vercel.app` (filled in by default).
 2. Enter the token from your interviewer in **Interview token**.
-3. Select **Connect**. Three starter cards should appear.
+3. Select **Connect**. Three starter cards and the remaining token time should appear. Refreshing the current tab restores the connection automatically. The countdown is informational; the server determines expiry.
 4. Select **Copy** on a card, observe the current interaction, and begin your changes.
 
 Use `localhost:4173`, not `127.0.0.1` or another port: the API currently allows cross-origin requests only from that frontend address. Stop the local frontend server by closing the terminal or pressing `Ctrl+C`.

@@ -25,7 +25,7 @@ npm run dev
 
 1. 确认 **API address** 为 `https://moodio-interview-api.vercel.app`（默认已填入）。
 2. 在 **Interview token** 中输入面试官提供的 token。
-3. 点击 **Connect**；连接成功后，画布会显示三张初始卡片。
+3. 点击 **Connect**；连接成功后，画布会显示三张初始卡片及 token 剩余时间。刷新当前标签页后会自动恢复连接；倒计时仅供参考，到期仍由后端判断。
 4. 点击任意卡片的 **Copy**，观察现有交互，然后开始修改。
 
 请使用 `localhost:4173`，不要改为 `127.0.0.1` 或其他端口：后端当前只允许该前端地址跨域访问。关闭终端或按 `Ctrl+C` 可以停止本地前端服务。

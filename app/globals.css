@@ -46,3 +46,4 @@ button:focus-visible, input:focus-visible { outline: 2px solid #8173e2; outline-
   .access { align-items: stretch; flex-direction: column; }
   .canvas { padding: 16px; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }
+.token-countdown { display: block; margin: 10px 2px 0; color: #7770b8; font-size: 12px; font-variant-numeric: tabular-nums; }
