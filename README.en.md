@@ -88,6 +88,10 @@ A successful response returns `201` with the saved copy, for example:
 }
 ```
 
-Each successful copy has a new server-generated ID. Copies are saved in the current session and returned by subsequent `GET /api/cards` requests.
+Each new copy operation has a server-generated ID. Copies are saved in the current session and returned by subsequent `GET /api/cards` requests.
+
+Requests may include `Idempotency-Key: <key>`. Use a new key for each new user action and reuse that key for retries of the same action. Within one session, the same key and source card return the same copy, including for concurrent retries; reusing the key for another source card returns `409`. Keys are isolated between sessions. Requests without the header create a new copy each time.
+
+Keys contain 1–128 ASCII letters, digits or `.`, `_`, `~`, `-`, such as a value from `crypto.randomUUID()`; invalid keys return `400`. A network error or `503` does not necessarily mean the server did not save the copy. If the original request used a key, retry with the same key while the token remains valid. Idempotency records remain until the interviewer cleans up the session; a new token starts a new session.
 
 A failure returns a non-2xx status and `{ "error": "..." }`. Invalid or expired tokens return `401`, an unknown card returns `404`, and the service may return `503` when temporarily unavailable. If your token expires, ask your interviewer for a new one; a new token starts a separate canvas and does not retain the previous session's data.
