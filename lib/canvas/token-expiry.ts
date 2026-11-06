@@ -14,5 +14,8 @@ export function readTokenExpiry(token: string): number | null {
 
 export function remainingTime(expiresAt: number, now: number): string {
   const seconds = Math.max(0, Math.ceil((expiresAt - now) / 1000));
-  return `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const tail = `${String(minutes).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+  return hours > 0 ? `${String(hours).padStart(2, '0')}:${tail}` : tail;
 }

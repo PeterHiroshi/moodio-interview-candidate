@@ -8,7 +8,7 @@ This is a small image canvas. Users can view image cards and create a copy of a 
 
 Copying a card currently takes a while to show a result, leaving the user unsure whether the action worked. Your task is to improve that interaction while keeping the canvas consistent with the server.
 
-The exercise is designed for approximately **20 minutes**. Your interviewer will provide a temporary token. Its lifetime starts when it is issued, and it expires after about 20 minutes. If it has expired before you start, ask your interviewer for a new one.
+The exercise is designed for approximately **20 minutes**. Your interviewer will provide a temporary token whose validity is set at issuance (20 minutes by default). The page displays the remaining time. If the token has expired before you start, ask your interviewer for a new one.
 
 ## Start the project
 

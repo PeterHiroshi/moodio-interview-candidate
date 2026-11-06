@@ -14,6 +14,10 @@ test('token expiry is read from the issued payload', () => {
 });
 
 test('remaining time counts down without becoming negative', () => {
+  assert.equal(remainingTime(7_200_000, 0), '02:00:00');
+  assert.equal(remainingTime(360_000_000, 0), '100:00:00');
+  assert.equal(remainingTime(3_600_000, 0), '01:00:00');
+  assert.equal(remainingTime(3_599_000, 0), '59:59');
   assert.equal(remainingTime(1_800_000, 600_000), '20:00');
   assert.equal(remainingTime(1_800_000, 601_001), '19:59');
   assert.equal(remainingTime(1_800_000, 1_800_000), '00:00');
