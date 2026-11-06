@@ -12,17 +12,18 @@
 
 ## 启动项目
 
-需要 Node.js 20 或更高版本，不需要安装依赖。
+需要 Node.js 20.19+、22.13+（Node 22）或 24 及以上版本。建议在面试计时开始前安装依赖。
 
 ```bash
 git clone https://github.com/PeterHiroshi/moodio-interview-candidate.git
 cd moodio-interview-candidate
-node serve.mjs
+npm ci
+npm run dev
 ```
 
 在浏览器打开 **http://localhost:4173**，然后：
 
-1. 在 **API address** 中输入 `https://moodio-interview-api.vercel.app`。
+1. 确认 **API address** 为 `https://moodio-interview-api.vercel.app`（默认已填入）。
 2. 在 **Interview token** 中输入面试官提供的 token。
 3. 点击 **Connect**；连接成功后，画布会显示三张初始卡片。
 4. 点击任意卡片的 **Copy**，观察现有交互，然后开始修改。
@@ -40,21 +41,26 @@ node serve.mjs
 - 用户快速连续复制同一张卡片或不同卡片时，结果是否正确。
 - 请求结束后刷新页面，再使用同一个未过期 token 连接，画布是否与服务端一致。
 
-完成后，请向面试官讲解你的方案、取舍，以及没有来得及处理或验证的情况。
+完成后，请向面试官讲解你的方案、取舍，以及没有来得及处理或验证的情况。项目提供 `npm test`、`npm run typecheck` 和 `npm run lint` 供检查。
 
 ## 项目结构
 
 | 路径 | 内容 |
 | --- | --- |
-| `public/index.html` | 页面结构和连接表单 |
-| `public/app.js` | 前端请求、状态与卡片交互 |
-| `public/style.css` | 页面样式 |
+| `app/` | Next.js 路由、布局和全局样式 |
+| `components/canvas/` | 画布和卡片的 React 组件 |
+| `lib/redux/services/canvasApi.ts` | RTK Query API 定义 |
+| `lib/redux/` | Redux store 和 Provider |
 | `public/images/` | 示例图片 |
-| `serve.mjs` | 本地静态文件服务 |
+| `tests/` | API 服务的基础测试 |
 
 ## API 说明
 
-所有请求都需要在请求头中携带 `Authorization: Bearer <token>`；响应为 JSON。
+画布相关请求都需要在请求头中携带 `Authorization: Bearer <token>`；响应为 JSON。健康检查不需要 token。
+
+### 健康检查
+
+`GET /api/health` 无需 token；服务正常响应时返回 `200` 和 `{ "status": "ok" }`。该接口只检查服务存活，不检查画布存储。
 
 ### 读取画布
 

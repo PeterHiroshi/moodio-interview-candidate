@@ -38,12 +38,12 @@ on the existing slow canvas-copy interaction.
 
 | Item | Source | Status |
 | --- | --- | --- |
-| Candidate runs a real Next.js / React / TypeScript project | User request and Moodio stack | Planned |
-| Project uses Moodio's Tailwind and Redux Toolkit / RTK Query patterns | Moodio project guidance | Planned |
-| Slow copy remains a candidate task, with success, failure, concurrency and reload cases | Existing accepted exercise | Planned |
-| Existing hosted API and 20-minute isolated token continue to work | Existing accepted exercise | Planned |
-| Candidate can install, start and navigate the project using both README languages | Existing candidate repository | Planned |
-| No backend source or interview solution is distributed to candidates | Existing accepted exercise | Planned |
+| Candidate runs a real Next.js / React / TypeScript project | User request and Moodio stack | Built; production build and page request verified |
+| Project uses Moodio's Tailwind and Redux Toolkit / RTK Query patterns | Moodio project guidance | Built; API service checked with live and local requests |
+| Slow copy remains a candidate task, with success, failure, concurrency and reload cases | Existing accepted exercise | Built; browser interaction not yet verified |
+| Existing hosted API and 20-minute isolated token continue to work | Existing accepted exercise | Live API calls verified |
+| Candidate can install, start and navigate the project using both README languages | Existing candidate repository | Written; clean install and build verified, browser navigation not yet verified |
+| No backend source or interview solution is distributed to candidates | Existing accepted exercise | Repository file list reviewed |
 
 ## Verification
 

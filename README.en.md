@@ -12,17 +12,18 @@ The exercise is designed for approximately **20 minutes**. Your interviewer will
 
 ## Start the project
 
-You need Node.js 20 or newer. No dependency installation is required.
+You need Node.js 20.19+, 22.13+ (Node 22), or 24 and newer. Install dependencies before the interview timer starts if possible.
 
 ```bash
 git clone https://github.com/PeterHiroshi/moodio-interview-candidate.git
 cd moodio-interview-candidate
-node serve.mjs
+npm ci
+npm run dev
 ```
 
 Open **http://localhost:4173** in a browser, then:
 
-1. Enter `https://moodio-interview-api.vercel.app` in **API address**.
+1. Check that **API address** is `https://moodio-interview-api.vercel.app` (filled in by default).
 2. Enter the token from your interviewer in **Interview token**.
 3. Select **Connect**. Three starter cards should appear.
 4. Select **Copy** on a card, observe the current interaction, and begin your changes.
@@ -40,21 +41,26 @@ Consider these scenarios:
 - What happens when the user quickly copies the same card or different cards several times?
 - After requests finish, does refreshing and reconnecting with the same unexpired token show the server's state?
 
-When you are ready, explain your approach and tradeoffs to your interviewer, including anything you did not have time to handle or verify.
+When you are ready, explain your approach and tradeoffs to your interviewer, including anything you did not have time to handle or verify. You can run `npm test`, `npm run typecheck` and `npm run lint` to check your changes.
 
 ## Project structure
 
 | Path | Contents |
 | --- | --- |
-| `public/index.html` | Page structure and connection form |
-| `public/app.js` | Frontend requests, state and card interactions |
-| `public/style.css` | Page styles |
+| `app/` | Next.js routes, layout and global styles |
+| `components/canvas/` | Canvas and card React components |
+| `lib/redux/services/canvasApi.ts` | RTK Query API definitions |
+| `lib/redux/` | Redux store and provider |
 | `public/images/` | Example images |
-| `serve.mjs` | Local static file server |
+| `tests/` | Basic API service test |
 
 ## API reference
 
-Every request must include `Authorization: Bearer <token>` in the request headers. Responses are JSON.
+Canvas requests must include `Authorization: Bearer <token>` in the request headers. Responses are JSON. The health check does not require a token.
+
+### Health check
+
+`GET /api/health` requires no token and returns `200` with `{ "status": "ok" }` when the service responds. It checks service liveness, not canvas storage.
 
 ### Read the canvas
 
